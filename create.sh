@@ -48,15 +48,15 @@ echo "# Restarting Apache"
 sudo systemctl restart apache2
 
 while true; do
-    read -p "Do you wish set up local hosts file (Optional)?" yn
+    read -p "Do you wish to set up local hosts file (Optional)? " yn
     case $yn in
-        [Yy]* ) echo "127.0.0.1 $MY_DOMAIN" | sudo tee -a /etc/hosts; break;;
+        [Yy]* ) echo "127.0.0.1       $MY_DOMAIN" | sudo tee -a /etc/hosts; break;;
         [Nn]* ) break;;
         * ) echo "Please answer Y or N.";;
     esac
 done
 
-
-echo "# All done! Check your new virtual host:"
-echo "http://$MY_DOMAIN"
+echo "###"
+echo "# All done! Check your new virtual host: http://$MY_DOMAIN"
+echo "###"
 exit
